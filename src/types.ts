@@ -127,6 +127,7 @@ export interface Investigation {
   alert_reference: string;
   transaction_id: string;
   customer_id: string;
+  customer_name?: string;
   investigator_id?: string;
   investigator_name?: string;
   status: AlertStatus;

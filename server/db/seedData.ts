@@ -19,7 +19,7 @@ export const INITIAL_SETTINGS: SystemSettings = {
 export const INITIAL_USERS: User[] = [
   {
     id: 'usr-admin-01',
-    name: 'Vikramaditya Sharma',
+    name: 'admin123',
     email: 'admin@fraudguard.demo',
     password_hash: 'DemoPass2026!',
     role: 'ADMIN',
@@ -526,6 +526,7 @@ export function generateSeedData() {
         alert_reference: alert.alert_reference,
         transaction_id: txn.id,
         customer_id: cust.id,
+        customer_name: cust.name,
         investigator_id: alertStatus !== 'OPEN' ? 'usr-investigator-01' : undefined,
         investigator_name: alertStatus !== 'OPEN' ? 'Marcus Vance' : undefined,
         status: alertStatus,
@@ -571,7 +572,7 @@ export function generateSeedData() {
     {
       id: 'aud-001',
       user_id: 'usr-admin-01',
-      user_name: 'Vikramaditya Sharma',
+      user_name: 'admin123',
       action: 'SYSTEM_INITIALIZATION',
       entity: 'SYSTEM',
       entity_id: 'SYS-CORE',
@@ -582,7 +583,7 @@ export function generateSeedData() {
     {
       id: 'aud-002',
       user_id: 'usr-admin-01',
-      user_name: 'Vikramaditya Sharma',
+      user_name: 'admin123',
       action: 'RULE_THRESHOLD_UPDATE',
       entity: 'FRAUD_RULE',
       entity_id: 'RULE_01',

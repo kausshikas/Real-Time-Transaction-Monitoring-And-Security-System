@@ -15,7 +15,7 @@ INSERT INTO system_settings (
 
 -- 2. Insert Default RBAC Users (Demo accounts for review & viva)
 INSERT INTO users (id, name, email, password_hash, role, status) VALUES
-('a0000000-0000-0000-0000-000000000001', 'Vikramaditya Sharma', 'admin@fraudguard.demo', '$2a$10$wN3T.r38V1bA9c3B5fR1IeC/lC6b5f92a00c73d9e28f3a74b3', 'ADMIN', 'ACTIVE'),
+('a0000000-0000-0000-0000-000000000001', 'admin123', 'admin@fraudguard.demo', '$2a$10$wN3T.r38V1bA9c3B5fR1IeC/lC6b5f92a00c73d9e28f3a74b3', 'ADMIN', 'ACTIVE'),
 ('a0000000-0000-0000-0000-000000000002', 'Priya Sundaram', 'analyst@fraudguard.demo', '$2a$10$wN3T.r38V1bA9c3B5fR1IeC/lC6b5f92a00c73d9e28f3a74b3', 'ANALYST', 'ACTIVE'),
 ('a0000000-0000-0000-0000-000000000003', 'Marcus Vance', 'investigator@fraudguard.demo', '$2a$10$wN3T.r38V1bA9c3B5fR1IeC/lC6b5f92a00c73d9e28f3a74b3', 'INVESTIGATOR', 'ACTIVE'),
 ('a0000000-0000-0000-0000-000000000004', 'Ananya Deshmukh', 'viewer@fraudguard.demo', '$2a$10$wN3T.r38V1bA9c3B5fR1IeC/lC6b5f92a00c73d9e28f3a74b3', 'VIEWER', 'ACTIVE')

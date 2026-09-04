@@ -94,8 +94,8 @@ export const InvestigationsPage: React.FC = () => {
                   <tr key={inv.id} className="hover:bg-slate-50 transition">
                     <td className="px-4 py-3 font-mono font-bold text-slate-900">{inv.id}</td>
                     <td className="px-4 py-3 font-mono text-indigo-600 font-semibold">{inv.alert_reference}</td>
-                    <td className="px-4 py-3 font-bold text-slate-800">{inv.customer_name}</td>
-                    <td className="px-4 py-3 text-slate-700">{inv.assigned_to_name}</td>
+                    <td className="px-4 py-3 font-bold text-slate-800">{inv.customer_name || 'Customer'}</td>
+                    <td className="px-4 py-3 text-slate-700">{inv.investigator_name || 'Unassigned'}</td>
                     <td className="px-4 py-3">
                       <StatusBadge status={inv.status} />
                     </td>

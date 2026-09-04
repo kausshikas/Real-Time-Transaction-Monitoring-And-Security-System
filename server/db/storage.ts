@@ -359,6 +359,7 @@ class StorageRepository {
       alert_reference: alert.alert_reference,
       transaction_id: alert.transaction_id,
       customer_id: alert.customer_id,
+      customer_name: alert.customer_name,
       status: alert.status,
       priority: alert.severity,
       notes: [

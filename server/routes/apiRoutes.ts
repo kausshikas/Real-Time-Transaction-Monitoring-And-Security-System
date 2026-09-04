@@ -395,7 +395,7 @@ apiRouter.post('/fraud-rules', (req: Request, res: Response) => {
 
   storage.addAuditLog({
     user_id: 'admin',
-    user_name: 'Administrator',
+    user_name: 'admin123',
     action: 'FRAUD_RULE_CREATED',
     entity: 'FRAUD_RULE',
     entity_id: created.rule_code,
@@ -414,7 +414,7 @@ apiRouter.patch('/fraud-rules/:id', (req: Request, res: Response) => {
 
   storage.addAuditLog({
     user_id: 'admin',
-    user_name: 'Administrator',
+    user_name: 'admin123',
     action: 'FRAUD_RULE_MODIFIED',
     entity: 'FRAUD_RULE',
     entity_id: updated.rule_code,
@@ -433,7 +433,7 @@ apiRouter.delete('/fraud-rules/:id', (req: Request, res: Response) => {
 
   storage.addAuditLog({
     user_id: 'admin',
-    user_name: 'Administrator',
+    user_name: 'admin123',
     action: 'FRAUD_RULE_DELETED',
     entity: 'FRAUD_RULE',
     entity_id: req.params.id,
@@ -517,7 +517,7 @@ apiRouter.post('/users', (req: Request, res: Response) => {
 
   storage.addAuditLog({
     user_id: 'admin',
-    user_name: 'Administrator',
+    user_name: 'admin123',
     action: 'USER_CREATED',
     entity: 'USER',
     entity_id: created.id,
@@ -537,7 +537,7 @@ apiRouter.patch('/users/:id', (req: Request, res: Response) => {
 
   storage.addAuditLog({
     user_id: 'admin',
-    user_name: 'Administrator',
+    user_name: 'admin123',
     action: 'USER_UPDATED',
     entity: 'USER',
     entity_id: updated.id,
@@ -570,7 +570,7 @@ apiRouter.patch('/settings', (req: Request, res: Response) => {
 
   storage.addAuditLog({
     user_id: 'admin',
-    user_name: 'Administrator',
+    user_name: 'admin123',
     action: 'SYSTEM_SETTINGS_MODIFIED',
     entity: 'SETTINGS',
     entity_id: 'SYS_CFG',

@@ -30,7 +30,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         const storedUser = localStorage.getItem('fraudguard_user');
         const token = localStorage.getItem('fraudguard_token');
         if (storedUser && token) {
-          setUser(JSON.parse(storedUser));
+          const parsed = JSON.parse(storedUser);
+          if (parsed && parsed.role === 'ADMIN' && parsed.name !== 'admin123') {
+            parsed.name = 'admin123';
+            localStorage.setItem('fraudguard_user', JSON.stringify(parsed));
+          }
+          setUser(parsed);
         } else {
           // Auto login as ADMIN by default so evaluators immediately see full functionality
           const res = await api.login(DEMO_ACCOUNTS.ADMIN.email, DEMO_ACCOUNTS.ADMIN.pass);

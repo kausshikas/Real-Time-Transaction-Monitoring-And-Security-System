@@ -52,11 +52,11 @@ export const LoginPage: React.FC<{ onLoginSuccess: () => void }> = ({ onLoginSuc
           </div>
         </div>
 
-        <h2 className="text-center text-2xl font-black tracking-tight text-white">
-          FRAUDGUARD ENTERPRISE
+        <h2 className="text-center text-lg sm:text-2xl font-black tracking-tight text-white uppercase">
+          Financial Transaction Monitoring and Fraud Detection System
         </h2>
         <p className="mt-1 text-center text-xs text-slate-400 font-mono uppercase tracking-wider">
-          Real-Time Fraud Detection & Transaction Surveillance Platform
+          Enterprise Digital Transaction Surveillance & Fraud Prevention
         </p>
       </div>
 

@@ -5,15 +5,22 @@ import { api } from '../../services/api';
 import { eventBus } from '../../services/events';
 import { 
   ShieldAlert, Bell, Play, Square, CheckCheck, 
-  ChevronDown, ExternalLink, Zap, UserCheck
+  ChevronDown, UserCheck, Menu, X 
 } from 'lucide-react';
 
 interface NavbarProps {
   onNavigate: (page: string) => void;
   activePage: string;
+  onToggleMobileMenu?: () => void;
+  isMobileMenuOpen?: boolean;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onNavigate, activePage }) => {
+export const Navbar: React.FC<NavbarProps> = ({ 
+  onNavigate, 
+  activePage,
+  onToggleMobileMenu,
+  isMobileMenuOpen,
+}) => {
   const { user, logout, switchDemoRole } = useAuth();
   const { notifications, unreadCount, markAllAsRead, markAsRead } = useNotifications();
   const [showNotifications, setShowNotifications] = useState(false);
@@ -52,29 +59,40 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, activePage }) => {
 
   return (
     <header className="sticky top-0 z-30 bg-[#FAF9F6]/95 backdrop-blur-md border-b border-[#EBE7DF] text-[#3D4035] select-none">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-18 flex items-center justify-between gap-2">
         
-        {/* Left: Brand Identity */}
-        <div className="flex items-center gap-3 cursor-pointer" onClick={() => onNavigate('dashboard')}>
-          <div className="w-9 h-9 rounded-full bg-[#8BA888] flex items-center justify-center shadow-md shadow-[#8BA888]/20 shrink-0">
-            <ShieldAlert className="w-5 h-5 text-[#FAF9F6]" />
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="font-serif text-lg font-bold tracking-tight text-[#2C3327]">
-                FraudGuard.
-              </span>
-              <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-[#DDE5B6] text-[#6B705C] border border-[#B7B7A4]/40">
-                PROJ #41
-              </span>
+        {/* Left: Mobile Toggle + Brand Identity */}
+        <div className="flex items-center gap-1.5 sm:gap-3 min-w-0">
+          <button
+            onClick={onToggleMobileMenu}
+            className="md:hidden p-1.5 -ml-1 rounded-xl text-[#2C3327] hover:bg-[#F3F1EB] transition shrink-0"
+            aria-label="Toggle navigation menu"
+            id="mobile-nav-toggle-btn"
+          >
+            {isMobileMenuOpen ? <X className="w-5 h-5 text-[#2C3327]" /> : <Menu className="w-5 h-5 text-[#2C3327]" />}
+          </button>
+
+          <div className="flex items-center gap-2 sm:gap-2.5 cursor-pointer min-w-0" onClick={() => onNavigate('dashboard')}>
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#8BA888] flex items-center justify-center shadow-md shadow-[#8BA888]/20 shrink-0">
+              <ShieldAlert className="w-4 h-4 sm:w-5 sm:h-5 text-[#FAF9F6]" />
             </div>
-            <p className="text-[10px] text-[#6B705C] tracking-wider uppercase font-medium">
-              Surveillance & Financial Intelligence
-            </p>
+            <div className="min-w-0">
+              <div className="flex items-center gap-1.5">
+                <span className="font-serif text-sm sm:text-base md:text-lg font-bold tracking-tight text-[#2C3327] truncate">
+                  Financial Transaction Monitoring
+                </span>
+                <span className="hidden sm:inline-block text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-[#DDE5B6] text-[#6B705C] border border-[#B7B7A4]/40 shrink-0">
+                  LIVE
+                </span>
+              </div>
+              <p className="text-[10px] text-[#6B705C] tracking-wider uppercase font-medium truncate hidden md:block">
+                Financial Transaction Monitoring and Fraud Detection System
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Center: System Status & Simulator Quick Controller */}
+        {/* Center: System Status & Simulator Quick Controller (Desktop) */}
         <div className="hidden md:flex items-center gap-3">
           <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3F1EB] border border-[#EBE7DF] text-xs">
             <span className="relative flex h-2 w-2">
@@ -112,17 +130,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, activePage }) => {
         </div>
 
         {/* Right: Role Switcher & Notifications & User */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           
           {/* Quick Demo Role Switcher for Final Year Viva */}
           <div className="relative">
             <button
               onClick={() => setShowRoleMenu(!showRoleMenu)}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F3F1EB] hover:bg-[#EBE7DF] border border-[#EBE7DF] text-xs text-[#2C3327] font-semibold transition"
+              className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-full bg-[#F3F1EB] hover:bg-[#EBE7DF] border border-[#EBE7DF] text-xs text-[#2C3327] font-semibold transition"
               title="Switch demo evaluation roles"
+              id="role-switch-menu-btn"
             >
               <UserCheck className="w-3.5 h-3.5 text-[#8BA888]" />
-              <span>{user?.role || 'ADMIN'}</span>
+              <span className="text-[11px] sm:text-xs">{user?.role || 'ADMIN'}</span>
               <ChevronDown className="w-3 h-3 text-[#6B705C]" />
             </button>
 

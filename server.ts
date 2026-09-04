@@ -15,7 +15,7 @@ async function startServer() {
   app.get('/api/health', (req, res) => {
     res.json({
       status: 'healthy',
-      platform: 'FraudGuard Enterprise Platform',
+      platform: 'Financial Transaction Monitoring and Fraud Detection System',
       version: '1.0.0',
       timestamp: new Date().toISOString(),
     });
@@ -50,7 +50,7 @@ async function startServer() {
 
   app.listen(PORT, '0.0.0.0', () => {
     console.log(`====================================================`);
-    console.log(`FRAUDGUARD REAL-TIME MONITORING PLATFORM ONLINE`);
+    console.log(`FINANCIAL TRANSACTION MONITORING AND FRAUD DETECTION SYSTEM ONLINE`);
     console.log(`Server listening on http://0.0.0.0:${PORT}`);
     console.log(`====================================================`);
   });

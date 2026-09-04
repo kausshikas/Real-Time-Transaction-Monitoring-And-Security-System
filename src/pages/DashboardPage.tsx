@@ -67,9 +67,9 @@ export const DashboardPage: React.FC<DashboardProps> = ({ onNavigate }) => {
     <div className="space-y-6 pb-12">
       
       {/* Header Banner */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-[#EBE7DF] shadow-xs">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-4 sm:p-6 rounded-2xl border border-[#EBE7DF] shadow-xs">
         <div>
-          <h1 className="text-2xl font-serif font-bold text-[#2C3327] tracking-tight">
+          <h1 className="text-xl sm:text-2xl font-serif font-bold text-[#2C3327] tracking-tight">
             Surveillance & Intelligence Dashboard
           </h1>
           <p className="text-xs text-[#6B705C] mt-1">
@@ -78,13 +78,13 @@ export const DashboardPage: React.FC<DashboardProps> = ({ onNavigate }) => {
         </div>
 
         {/* Date Filter & Refresh */}
-        <div className="flex items-center gap-2">
-          <div className="inline-flex rounded-full border border-[#EBE7DF] p-1 bg-[#F3F1EB] text-xs">
+        <div className="flex items-center gap-2 overflow-x-auto max-w-full pb-1 sm:pb-0">
+          <div className="inline-flex rounded-full border border-[#EBE7DF] p-1 bg-[#F3F1EB] text-xs shrink-0">
             {(['today', '7d', '30d', '90d'] as const).map(range => (
               <button
                 key={range}
                 onClick={() => setDateRange(range)}
-                className={`px-3.5 py-1.5 rounded-full font-semibold transition ${
+                className={`px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full font-semibold transition text-xs whitespace-nowrap ${
                   dateRange === range
                     ? 'bg-[#8BA888] text-white shadow-xs font-bold'
                     : 'text-[#6B705C] hover:text-[#2C3327]'
@@ -97,7 +97,7 @@ export const DashboardPage: React.FC<DashboardProps> = ({ onNavigate }) => {
 
           <button
             onClick={fetchDashboardData}
-            className="p-2.5 rounded-full border border-[#EBE7DF] hover:bg-[#F3F1EB] text-[#6B705C] transition"
+            className="p-2 sm:p-2.5 rounded-full border border-[#EBE7DF] hover:bg-[#F3F1EB] text-[#6B705C] transition shrink-0"
             title="Refresh Data"
           >
             <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />

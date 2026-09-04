@@ -1,5 +1,5 @@
 {
-  "name": "FraudGuard - Real-Time Fraud Detection & Transaction Monitoring Platform",
+  "name": "Financial Transaction Monitoring and Fraud Detection System",
   "description": "Enterprise-grade real-time digital transaction monitoring, explainable fraud detection engine, risk scoring, alerts, investigations, and analytics platform.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
